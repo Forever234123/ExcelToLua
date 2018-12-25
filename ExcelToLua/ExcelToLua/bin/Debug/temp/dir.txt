@@ -1,0 +1,2 @@
+F:/ExcelToLua/ExcelToLua/bin/Debug/excels/
+F:/ExcelToLua/ExcelToLua/bin/Debug/luas/

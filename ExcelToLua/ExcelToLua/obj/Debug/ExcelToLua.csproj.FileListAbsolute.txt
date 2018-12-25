@@ -1,0 +1,17 @@
+F:\ExcelToLua\ExcelToLua\bin\Debug\ExcelToLua.exe.config
+F:\ExcelToLua\ExcelToLua\bin\Debug\ExcelToLua.exe
+F:\ExcelToLua\ExcelToLua\bin\Debug\ExcelToLua.pdb
+F:\ExcelToLua\ExcelToLua\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\ExcelToLua\ExcelToLua\bin\Debug\NPOI.dll
+F:\ExcelToLua\ExcelToLua\bin\Debug\NPOI.OOXML.dll
+F:\ExcelToLua\ExcelToLua\bin\Debug\NPOI.OpenXml4Net.dll
+F:\ExcelToLua\ExcelToLua\bin\Debug\NPOI.OpenXmlFormats.dll
+F:\ExcelToLua\ExcelToLua\bin\Debug\ICSharpCode.SharpZipLib.xml
+F:\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.csprojAssemblyReference.cache
+F:\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.Form1.resources
+F:\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.Properties.Resources.resources
+F:\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.csproj.GenerateResource.cache
+F:\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.csproj.CoreCompileInputs.cache
+F:\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.csproj.CopyComplete
+F:\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.exe
+F:\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.pdb
