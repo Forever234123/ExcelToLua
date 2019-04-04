@@ -1,2 +1,2 @@
-F:/ExcelToLua/ExcelToLua/bin/Debug/excels/
-F:/ExcelToLua/ExcelToLua/bin/Debug/luas/
+E:/work/product/产品需求/棋牌游戏/捕鱼/3D捕鱼/3D配置表/
+D:/work/u3d_client2/proj.u3d/Assets/Lua/Game/Modules/Fishing/Config/

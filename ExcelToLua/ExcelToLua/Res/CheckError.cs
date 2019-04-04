@@ -36,6 +36,7 @@ namespace ExcelToLua.Res
                 DataColumn column = columns[i];
                 string key = row[column].ToString();
                 int columnIndex = i + 1;
+                if (string.IsNullOrEmpty(key)) continue;
                 if (RepeatDic.ContainsKey(key))
                 {
                     errorMsg = filePath +"表"+ rowIndex + "行" + MyConfig.ColumnToA_Z(columnIndex) + "列;"+ rowIndex + "行" + MyConfig.ColumnToA_Z(RepeatDic[key]) + "列;" + "\"" + key + "\" 重复";
@@ -61,6 +62,7 @@ namespace ExcelToLua.Res
                 DataRow row = rows[i];
                 string key = row[column].ToString();
                 int rowIndex = i + 1;
+                if (string.IsNullOrEmpty(key)) continue;
                 if (RepeatDic.ContainsKey(key))
                 {
                     errorMsg = filePath + "表" + rowIndex + "行" + MyConfig.ColumnToA_Z(columnIndex) + "列;" + RepeatDic[key] + "行" + MyConfig.ColumnToA_Z(columnIndex) + "列;" + "\"" + key + "\" 重复";

@@ -69,6 +69,10 @@ namespace ExcelToLua.Res
                 for(int j = 0;j < table.Columns.Count;j++)
                 {
                     DataColumn mDc = table.Columns[j];
+                    if (RowKey[mDc].ToString().ToLower() == "key" && string.IsNullOrEmpty(mDr[mDc].ToString()))
+                    {
+                        break;
+                    }
                     if (string.IsNullOrEmpty(RowName[mDc].ToString()))
                     {
                         continue;
@@ -137,11 +141,14 @@ namespace ExcelToLua.Res
                         }
                     }
                 }
-                str += "},\n";
+                if (!str.Equals("{"))
+                {
+                    str += "},\n";
 
-                str = "\t" + key + str;
+                    str = "\t" + key + str;
 
-                luaStr += str;
+                    luaStr += str; 
+                }
             }
 
             luaStr += "}\nreturn " + filestr;
