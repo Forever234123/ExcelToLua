@@ -10,6 +10,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ExcelToLua.Res
@@ -234,6 +235,11 @@ namespace ExcelToLua.Res
                 }
             }
             return dic;
+        }
+
+        public static bool IsInt(string value)
+        {
+            return Regex.IsMatch(value, @"^[+-]?\d*$");
         }
     }
 }

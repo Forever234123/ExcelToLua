@@ -1,0 +1,65 @@
+using UnityEngine;
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
+
+public partial class #Class#: ByteBase {
+
+	#PropertyList#
+	
+	public override void Read(){
+	 	#ReadList#
+	}
+	
+	public override void Write (){
+	 	#WriteList#
+	}
+
+	public System.Object Clone()  
+	{
+		return this.MemberwiseClone();
+	}
+}
+
+public partial class #Class#Mgr{
+	public Dictionary<#KeyType#,#Class#> itemData = new Dictionary<#KeyType#, #Class#>();
+
+	public int size;
+
+	public #Class#Mgr(){
+		//ReadConfig ();
+	}
+
+	public void ReadConfig(object state){
+        string assetPath = ConfigMgr.Path + "#Class#.bytes";
+        byte[] bytes = ConfigMgr.LoadBytes(assetPath);
+
+		MemoryStream stream = new MemoryStream (bytes);
+		stream.Position = 0;
+		
+		#Class# byteObj = new #Class# ();
+		byteObj.SetStream (stream);
+		size = byteObj.ReadInt ();
+		
+		for (int i=0; i<size; i++) {
+			#Class# item = new #Class#();
+			item.Deserialization(stream);
+			if(itemData.ContainsKey(item.#KeyProperty#))
+                Debug.LogError("#Class# is Repeat KEY = "+item.#KeyProperty#);
+	        itemData[item.#KeyProperty#]=item;
+		}
+		Debug.Log("#Class# Config load Complete, size:"+size);
+	}
+
+	public #Class# GetData(#KeyType#  #KeyProperty#){
+		if (itemData.ContainsKey (#KeyProperty#)) {
+			return itemData[#KeyProperty#];
+		}
+		Debug.LogError("#Class# not find >> #KeyProperty#:"+#KeyProperty#);
+		return null;
+	}
+
+	public bool HasData(#KeyType# #KeyProperty#){
+		return itemData.ContainsKey (#KeyProperty#);
+	}
+}

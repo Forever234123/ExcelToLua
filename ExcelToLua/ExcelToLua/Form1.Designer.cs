@@ -41,12 +41,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.dataTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 101);
+            this.label1.Location = new System.Drawing.Point(12, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 0;
@@ -55,15 +61,15 @@
             // OutRichTextBox
             // 
             this.OutRichTextBox.ForeColor = System.Drawing.Color.Black;
-            this.OutRichTextBox.Location = new System.Drawing.Point(49, 101);
+            this.OutRichTextBox.Location = new System.Drawing.Point(49, 121);
             this.OutRichTextBox.Name = "OutRichTextBox";
-            this.OutRichTextBox.Size = new System.Drawing.Size(628, 199);
+            this.OutRichTextBox.Size = new System.Drawing.Size(628, 179);
             this.OutRichTextBox.TabIndex = 1;
             this.OutRichTextBox.Text = "";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(694, 101);
+            this.button1.Location = new System.Drawing.Point(694, 160);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 23);
             this.button1.TabIndex = 2;
@@ -84,7 +90,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(694, 54);
+            this.button3.Location = new System.Drawing.Point(694, 51);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 23);
             this.button3.TabIndex = 4;
@@ -98,13 +104,15 @@
             this.excelTextBox.Name = "excelTextBox";
             this.excelTextBox.Size = new System.Drawing.Size(586, 21);
             this.excelTextBox.TabIndex = 5;
+            this.excelTextBox.TextChanged += new System.EventHandler(this.excelTextBox_TextChanged);
             // 
             // luatextBox
             // 
-            this.luatextBox.Location = new System.Drawing.Point(91, 56);
+            this.luatextBox.Location = new System.Drawing.Point(91, 51);
             this.luatextBox.Name = "luatextBox";
             this.luatextBox.Size = new System.Drawing.Size(586, 21);
             this.luatextBox.TabIndex = 6;
+            this.luatextBox.TextChanged += new System.EventHandler(this.luatextBox_TextChanged);
             // 
             // label2
             // 
@@ -118,12 +126,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 59);
+            this.label3.Location = new System.Drawing.Point(14, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 12);
+            this.label3.Size = new System.Drawing.Size(71, 12);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Lua目录";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Text = "Lua或C#目录";
             // 
             // ErrorRichTextBox
             // 
@@ -142,11 +149,10 @@
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 10;
             this.label4.Text = "错误";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(694, 426);
+            this.button4.Location = new System.Drawing.Point(694, 406);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 23);
             this.button4.TabIndex = 11;
@@ -156,19 +162,83 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(694, 476);
+            this.button5.Location = new System.Drawing.Point(694, 442);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(94, 23);
             this.button5.TabIndex = 12;
-            this.button5.Text = "打开Lua目录";
+            this.button5.Text = "打开Lua或C#目录";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(694, 200);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(94, 23);
+            this.button6.TabIndex = 13;
+            this.button6.Text = "导出c#类";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(694, 229);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(94, 23);
+            this.button7.TabIndex = 14;
+            this.button7.Text = "导出byte数据";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // dataTextBox
+            // 
+            this.dataTextBox.Location = new System.Drawing.Point(91, 90);
+            this.dataTextBox.Name = "dataTextBox";
+            this.dataTextBox.Size = new System.Drawing.Size(586, 21);
+            this.dataTextBox.TabIndex = 15;
+            this.dataTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 93);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "二进制数据";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(694, 482);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(94, 23);
+            this.button8.TabIndex = 17;
+            this.button8.Text = "打开二进制目录";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(694, 89);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(94, 23);
+            this.button9.TabIndex = 18;
+            this.button9.Text = "浏览";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 522);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dataTextBox);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label4);
@@ -204,6 +274,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox dataTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }
 

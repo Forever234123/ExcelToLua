@@ -34,7 +34,7 @@ namespace ExcelToLua
             Res.MyConfig.ReadDir();
             this.excelTextBox.Text = Res.MyConfig.excelDir;
             this.luatextBox.Text = Res.MyConfig.luaDir;
-
+            this.dataTextBox.Text = Res.MyConfig.dataDir;
             Clear();
         }
         /// <summary>
@@ -69,6 +69,18 @@ namespace ExcelToLua
                 this.luatextBox.Text = Res.MyConfig.luaDir;
             }
         }
+        private void button9_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog path = new FolderBrowserDialog();
+            path.SelectedPath = Res.MyConfig.dataDir.Replace("/", "\\");
+
+            if (path.ShowDialog() == DialogResult.OK)
+            {
+                Res.MyConfig.ChangedLuaDir(path.SelectedPath);
+                this.luatextBox.Text = Res.MyConfig.dataDir;
+            }
+        }
+
         /// <summary>
         /// 导出lua
         /// </summary>
@@ -77,17 +89,7 @@ namespace ExcelToLua
         private void button1_Click(object sender, EventArgs e)
         {
             Clear();
-            Res.ExcelToLuaManger.vInstance.Start();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
+            Res.ExcelToLuaManger.vInstance.Start(Res.GenerateType.Lua);
         }
 
         public void ShowOutPut(object output)
@@ -113,6 +115,47 @@ namespace ExcelToLua
         private void button5_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Res.MyConfig.luaDir);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //导出byte数据
+            Clear();
+            Res.ExcelToLuaManger.vInstance.Start(Res.GenerateType.Bytes);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //导出 c# 类
+            Clear();
+            Res.ExcelToLuaManger.vInstance.Start(Res.GenerateType.Csharp);
+        }
+
+        private void excelTextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                Res.MyConfig.ChangedExcelDir((textBox.Text));
+            }
+        }
+
+        private void luatextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                Res.MyConfig.ChangedLuaDir((textBox.Text));
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                Res.MyConfig.ChangedDataDir((textBox.Text));
+            }
         }
     }
 }

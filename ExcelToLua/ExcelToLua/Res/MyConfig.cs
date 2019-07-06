@@ -20,6 +20,10 @@ namespace ExcelToLua.Res
         /// 导出lua目录
         /// </summary>
         public static string luaDir = "luas/";
+        /// <summary>
+        /// 导出二进制数据
+        /// </summary>
+        public static string dataDir = "data/";
 
         public static string xlsx = ".xlsx";
         public static string xls = ".xls";
@@ -39,16 +43,22 @@ namespace ExcelToLua.Res
             if (!string.IsNullOrEmpty(str))
             {
                 string[] liststr = str.Split('\n');
-                Res.MyConfig.excelDir = liststr[0];
-                Res.MyConfig.luaDir = liststr[1];
+                if (liststr.Length == 3)
+                {
+                    Res.MyConfig.excelDir = liststr[0];
+                    Res.MyConfig.luaDir = liststr[1];
+                    Res.MyConfig.dataDir = liststr[2];
+                }
             }
             else
             {
                 Res.MyConfig.excelDir = System.Environment.CurrentDirectory +"/"+ Res.MyConfig.excelDir;
                 Res.MyConfig.luaDir = System.Environment.CurrentDirectory +"/"+ Res.MyConfig.luaDir;
-                Res.MyConfig.excelDir = Res.MyConfig.excelDir.Replace("\\", "/");
-                Res.MyConfig.luaDir = Res.MyConfig.luaDir.Replace("\\", "/");
+                Res.MyConfig.dataDir = System.Environment.CurrentDirectory + "/" + Res.MyConfig.dataDir;
             }
+            Res.MyConfig.excelDir = Res.MyConfig.excelDir.Replace("\\", "/");
+            Res.MyConfig.luaDir = Res.MyConfig.luaDir.Replace("\\", "/");
+            Res.MyConfig.dataDir = Res.MyConfig.dataDir.Replace("\\", "/");
         }
         /// <summary>
         /// 改变Excel目录
@@ -57,8 +67,9 @@ namespace ExcelToLua.Res
         /// <param name="luadir"></param>
         public static void ChangedExcelDir(string excel)
         {
-            excelDir = excel.Replace("\\", "/") + "/"; 
-            string str = excelDir + "\n" + luaDir;
+            excelDir = excel.Replace("\\", "/"); 
+            string str = excelDir + "\n" + luaDir + "\n" + dataDir;
+            str = str.Replace("\\", "/");
             File.WriteAllText(dirfile, str);
         }
 
@@ -69,8 +80,22 @@ namespace ExcelToLua.Res
         /// <param name="luadir"></param>
         public static void ChangedLuaDir( string lua)
         {
-            luaDir = lua.Replace("\\", "/") +"/";
-            string str = excelDir + "\n" + luaDir;
+            luaDir = lua.Replace("\\", "/");
+            string str = excelDir + "\n" + luaDir + "\n" + dataDir;
+            str = str.Replace("\\", "/");
+            File.WriteAllText(dirfile, str);
+        }
+
+        /// <summary>
+        /// 改变数据目录
+        /// </summary>
+        /// <param name="exceldir"></param>
+        /// <param name="luadir"></param>
+        public static void ChangedDataDir(string data)
+        {
+            dataDir = data.Replace("\\", "/");
+            string str = excelDir + "\n" + luaDir+"\n"+ dataDir;
+            str = str.Replace("\\", "/");
             File.WriteAllText(dirfile, str);
         }
 

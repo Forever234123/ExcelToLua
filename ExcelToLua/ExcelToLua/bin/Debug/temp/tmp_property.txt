@@ -1,0 +1,4 @@
+	/// <summary>
+	/// #Desc#
+	///</summary>
+	public #Type#  #Property#;

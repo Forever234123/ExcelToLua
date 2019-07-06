@@ -69,7 +69,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Res\GenerateLua.cs" />
+    <Compile Include="Res\Scharp\ByteBase.cs" />
+    <Compile Include="Res\FileTool.cs" />
+    <Compile Include="Res\Scharp\GenerateBytes.cs" />
+    <Compile Include="Res\Scharp\GenerateCsharp.cs" />
+    <Compile Include="Res\Lua\GenerateLua.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Res\MyConfig.cs" />

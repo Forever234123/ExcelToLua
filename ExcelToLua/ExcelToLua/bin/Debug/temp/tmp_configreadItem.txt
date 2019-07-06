@@ -1,0 +1,2 @@
+#Class#= new #Class#Mgr();
+ThreadPool.QueueUserWorkItem(#Class#.ReadConfig);

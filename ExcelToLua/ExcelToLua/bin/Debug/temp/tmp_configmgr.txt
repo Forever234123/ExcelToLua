@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Threading;
+using UnityEngine;
+
+public delegate byte[] LoadBytesDelegate(string assetpoath);
+public class ConfigMgr
+{
+    #ConfigPropertyItem#
+
+    public static string Path;
+    public static LoadBytesDelegate LoadBytes;
+    public static void Init(string path, LoadBytesDelegate customload)
+    {
+	Path = path;
+        	LoadBytes = customload;
+        	ThreadPool.SetMaxThreads(5, 5);
+    }
+
+    public static void ReadData()
+    {
+        #ConfigReadItem#
+    }
+}
