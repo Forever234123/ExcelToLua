@@ -78,58 +78,71 @@ namespace ExcelToLua.Res.Scharp
                 for (int j = 0; j < table.Columns.Count; j++)
                 {
                     DataColumn mDc = table.Columns[j];
+                    string property = RowName[mDc].ToString();
                     string typestr = RowType[mDc].ToString().ToLower().Trim();
+                    if (string.IsNullOrEmpty(property) || string.IsNullOrEmpty(typestr))
+                    {
+                        continue;
+                    }
                     ByteBase.TYPE type = ByteBase.GetTypeByName(typestr);
 
                     string str = mRow[mDc].ToString();
-                    switch (type)
+                    try
                     {
-                        case ByteBase.TYPE.ARRAY_FLOAT:
-                            string[] strlist = str.Split(';');
-                            float[] list = new float[strlist.Length];
-                            for(int r = 0; r< strlist.Length; r++)
-                            {
-                                list[r] = int.Parse(strlist[r]);
-                            }
-                            byteb.WriteArrayFloat(list);
-                            break;
-                        case ByteBase.TYPE.ARRAY_INT:
-                            string[] intstrlist = str.Split(';');
-                            int[] intlist = new int[intstrlist.Length];
-                            for (int r = 0; r < intstrlist.Length; r++)
-                            {
-                                intlist[r] = int.Parse(intstrlist[r]);
-                            }
-                            byteb.WriteArrayInt(intlist);
-                            break;
-                        case ByteBase.TYPE.ARRAY_STRING:
-                            string[] strlist1 = str.Split(';');
-                            byteb.WriteArrayStr(strlist1);
-                            break;
-                        case ByteBase.TYPE.BOOL:
-                            bool b = bool.Parse(str);
-                            byteb.WriteBool(b);
-                            break;
-                        case ByteBase.TYPE.ENUM:
-                            int e = int.Parse(str);
-                            byteb.WriteInt(e);
-                            break;
-                        case ByteBase.TYPE.FLOAT:
-                            float f = float.Parse(str);
-                            byteb.WriteFloat(f);
-                            break;
-                        case ByteBase.TYPE.INT:
-                            int int1 = int.Parse(str);
-                            byteb.WriteInt(int1);
-                            break;
-                        case ByteBase.TYPE.SHORT:
-                            short s = short.Parse(str);
-                            byteb.WriteShort(s);
-                            break;
-                        case ByteBase.TYPE.STRING:
-                           
-                            byteb.WriteString(str);
-                            break;
+                        switch (type)
+                        {
+                            case ByteBase.TYPE.ARRAY_FLOAT:
+                                string[] strlist = str.Split(';');
+                                float[] list = new float[strlist.Length];
+                                for (int r = 0; r < strlist.Length; r++)
+                                {
+                                    list[r] = int.Parse(strlist[r]);
+                                }
+                                byteb.WriteArrayFloat(list);
+                                break;
+                            case ByteBase.TYPE.ARRAY_INT:
+                                string[] intstrlist = str.Split(';');
+                                int[] intlist = new int[intstrlist.Length];
+                                for (int r = 0; r < intstrlist.Length; r++)
+                                {
+                                    intlist[r] = int.Parse(intstrlist[r]);
+                                }
+                                byteb.WriteArrayInt(intlist);
+                                break;
+                            case ByteBase.TYPE.ARRAY_STRING:
+                                string[] strlist1 = str.Split(';');
+                                byteb.WriteArrayStr(strlist1);
+                                break;
+                            case ByteBase.TYPE.BOOL:
+                                bool b = bool.Parse(str);
+                                byteb.WriteBool(b);
+                                break;
+                            case ByteBase.TYPE.ENUM:
+                                int e = int.Parse(str);
+                                byteb.WriteInt(e);
+                                break;
+                            case ByteBase.TYPE.FLOAT:
+                                float f = float.Parse(str);
+                                byteb.WriteFloat(f);
+                                break;
+                            case ByteBase.TYPE.INT:
+                                int int1 = int.Parse(str);
+                                byteb.WriteInt(int1);
+                                break;
+                            case ByteBase.TYPE.SHORT:
+                                short s = short.Parse(str);
+                                byteb.WriteShort(s);
+                                break;
+                            case ByteBase.TYPE.STRING:
+
+                                byteb.WriteString(str);
+                                break;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        errorStr = string.Format("{0}表;类型错误:{1}, {2}行{3}列", filestr, RowType[mDc].ToString(), MyConfig.ColumnToA_Z(i + 1), MyConfig.ColumnToA_Z(j + 1));
+                        param.errorH.Invoke(errorStr);
                     }
                 }
             }

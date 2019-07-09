@@ -1,2 +1,2 @@
-#Class#= new #Class#Mgr();
-ThreadPool.QueueUserWorkItem(#Class#.ReadConfig);
+	#Class#= new #Class#Mgr();
+	ThreadPool.QueueUserWorkItem(#Class#.ReadConfig);

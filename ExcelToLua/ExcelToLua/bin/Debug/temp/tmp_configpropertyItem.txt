@@ -1,1 +1,1 @@
-public static #Class#Mgr  #Class#;
+	public static #Class#Mgr  #Class#;

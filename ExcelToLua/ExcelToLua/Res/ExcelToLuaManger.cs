@@ -125,6 +125,10 @@ namespace ExcelToLua.Res
             configStr = configMgrStr.Replace(TMP.configPropertyItemTmp, propertyStr).Replace(TMP.configReadItemTmp, readStr);
             string configFile = MyConfig.luaDir +  "ConfigMgr.cs";
             File.WriteAllText(configFile, configStr);
+
+            string btyeBaseStr = File.ReadAllText(FileTool.byteBaseFile);
+            string btyeBaseFile = MyConfig.luaDir + "ByteBase.cs";
+            File.WriteAllText(btyeBaseFile, btyeBaseStr);
         }
 
 

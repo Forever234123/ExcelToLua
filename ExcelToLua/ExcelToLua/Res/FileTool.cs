@@ -29,6 +29,7 @@ namespace ExcelToLua.Res
         public const string configReadItemTmp = "#ConfigReadItem#";
 
         public const string keystr = "key";
+
     }
   public  class FileTool
   {
@@ -40,6 +41,8 @@ namespace ExcelToLua.Res
         const string configMgrFile = "temp/tmp_configmgr.txt";
         const string configPropertyFile = "temp/tmp_configpropertyItem.txt";
         const string configReadFile = "temp/tmp_configreadItem.txt";
+
+        public  const string byteBaseFile = "temp/tmp_ByteBase.txt";
 
         string _classStr;
         string _propertyStr;

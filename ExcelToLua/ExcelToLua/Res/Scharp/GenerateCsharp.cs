@@ -74,9 +74,15 @@ namespace ExcelToLua.Res
             for (int j = 0; j < table.Columns.Count; j++)
             {
                 DataColumn mDc = table.Columns[j];
+                string property = RowName[mDc].ToString();
                 string type = RowType[mDc].ToString();
                 type = type.ToLower().Trim();
-                string property = RowName[mDc].ToString();
+
+                if (string.IsNullOrEmpty(property) || string.IsNullOrEmpty(type))
+                {
+                    continue;
+                }
+                
 
                 ByteBase.TYPE btype = ByteBase.GetTypeByName(type);
                 string typeMethod = FileTool.GetMethodStr(btype);

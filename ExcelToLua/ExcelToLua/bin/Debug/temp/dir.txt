@@ -1,3 +1,3 @@
-F:/Git/ExcelToLua/ExcelToLua/ExcelToLua/bin/Debug/excels/
-F:/Git/ExcelToLua/ExcelToLua/ExcelToLua/bin/Debug/luas/
-F:/Git/ExcelToLua/ExcelToLua/ExcelToLua/bin/Debug/data/
+D:/u3d_ilr/Excel/
+D:/u3d_ilr/DHGame_IL/Assets/DH_Game/Conf/
+D:/u3d_ilr/DHGame_IL/Assets/StreamingAssets/Config/

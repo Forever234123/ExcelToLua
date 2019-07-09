@@ -5,7 +5,7 @@ using UnityEngine;
 public delegate byte[] LoadBytesDelegate(string assetpoath);
 public class ConfigMgr
 {
-    #ConfigPropertyItem#
+#ConfigPropertyItem#
 
     public static string Path;
     public static LoadBytesDelegate LoadBytes;
@@ -14,10 +14,11 @@ public class ConfigMgr
 	Path = path;
         	LoadBytes = customload;
         	ThreadPool.SetMaxThreads(5, 5);
+	ReadData();
     }
 
     public static void ReadData()
     {
-        #ConfigReadItem#
+#ConfigReadItem#
     }
 }

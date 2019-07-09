@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 public partial class #Class#: ByteBase {
 
-	#PropertyList#
+#PropertyList#
 	
 	public override void Read(){
-	 	#ReadList#
+	#ReadList#
 	}
 	
 	public override void Write (){
-	 	#WriteList#
+	 #WriteList#
 	}
 
 	public System.Object Clone()  
@@ -33,7 +33,7 @@ public partial class #Class#Mgr{
 	public void ReadConfig(object state){
         string assetPath = ConfigMgr.Path + "#Class#.bytes";
         byte[] bytes = ConfigMgr.LoadBytes(assetPath);
-
+        if (bytes == null) return;
 		MemoryStream stream = new MemoryStream (bytes);
 		stream.Position = 0;
 		
