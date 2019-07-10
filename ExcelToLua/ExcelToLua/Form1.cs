@@ -116,6 +116,10 @@ namespace ExcelToLua
         {
             System.Diagnostics.Process.Start(Res.MyConfig.luaDir);
         }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Res.MyConfig.dataDir);
+        }
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -157,5 +161,7 @@ namespace ExcelToLua
                 Res.MyConfig.ChangedDataDir((textBox.Text));
             }
         }
+
+       
     }
 }

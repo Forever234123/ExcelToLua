@@ -217,6 +217,7 @@
             this.button8.TabIndex = 17;
             this.button8.Text = "打开二进制目录";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 

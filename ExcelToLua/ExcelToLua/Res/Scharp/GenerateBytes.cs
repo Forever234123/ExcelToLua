@@ -92,16 +92,16 @@ namespace ExcelToLua.Res.Scharp
                         switch (type)
                         {
                             case ByteBase.TYPE.ARRAY_FLOAT:
-                                string[] strlist = str.Split(';');
+                                string[] strlist = GetSplit(str).ToArray(); //str.Split(';');
                                 float[] list = new float[strlist.Length];
                                 for (int r = 0; r < strlist.Length; r++)
                                 {
-                                    list[r] = int.Parse(strlist[r]);
+                                    list[r] = float.Parse(strlist[r]);
                                 }
                                 byteb.WriteArrayFloat(list);
                                 break;
                             case ByteBase.TYPE.ARRAY_INT:
-                                string[] intstrlist = str.Split(';');
+                                string[] intstrlist =  GetSplit(str).ToArray(); // str.Split(';');
                                 int[] intlist = new int[intstrlist.Length];
                                 for (int r = 0; r < intstrlist.Length; r++)
                                 {
@@ -110,8 +110,8 @@ namespace ExcelToLua.Res.Scharp
                                 byteb.WriteArrayInt(intlist);
                                 break;
                             case ByteBase.TYPE.ARRAY_STRING:
-                                string[] strlist1 = str.Split(';');
-                                byteb.WriteArrayStr(strlist1);
+                                string[] strlist1 = GetSplit(str).ToArray(); //str.Split(';');
+                                byteb.WriteArrayExcelStr(strlist1);
                                 break;
                             case ByteBase.TYPE.BOOL:
                                 bool b = bool.Parse(str);
@@ -135,13 +135,13 @@ namespace ExcelToLua.Res.Scharp
                                 break;
                             case ByteBase.TYPE.STRING:
 
-                                byteb.WriteString(str);
+                                byteb.WriteExcelString(str);
                                 break;
                         }
                     }
                     catch (Exception e)
                     {
-                        errorStr = string.Format("{0}表;类型错误:{1}, {2}行{3}列", filestr, RowType[mDc].ToString(), MyConfig.ColumnToA_Z(i + 1), MyConfig.ColumnToA_Z(j + 1));
+                        errorStr = string.Format("{0}表;类型错误:{1}, {2}行{3}列", filestr, RowType[mDc].ToString(), i + 1, MyConfig.ColumnToA_Z(j + 1));
                         param.errorH.Invoke(errorStr);
                     }
                 }
@@ -152,6 +152,21 @@ namespace ExcelToLua.Res.Scharp
 
             string MsgStr = pathfile + "已完成加载";
             param.completeH.Invoke(MsgStr);
+        }
+        
+        List<string> GetSplit(string str)
+        {
+            List<string> liststr = new List<string>();
+            string[] strlist1 = str.Split(';');
+            for (int i = 0; i < strlist1.Length; i++)
+            {
+                string [] tmp = strlist1[i].Split('|');
+                for (int j = 0; j < tmp.Length; j++)
+                {
+                    liststr.Add(tmp[j]);
+                }
+            }
+            return liststr;
         }
     }
 }

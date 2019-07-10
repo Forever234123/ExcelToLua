@@ -41,7 +41,6 @@ F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\bin\Debug\NPOI.OOXML.dll
 F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\bin\Debug\NPOI.OpenXml4Net.dll
 F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\bin\Debug\NPOI.OpenXmlFormats.dll
 F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\bin\Debug\ICSharpCode.SharpZipLib.xml
-F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.csprojAssemblyReference.cache
 F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.Form1.resources
 F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.Properties.Resources.resources
 F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.csproj.GenerateResource.cache
@@ -49,3 +48,4 @@ F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.csproj.CoreCompileI
 F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.csproj.CopyComplete
 F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.exe
 F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.pdb
+F:\Git\ExcelToLua\ExcelToLua\ExcelToLua\obj\Debug\ExcelToLua.csprojAssemblyReference.cache
