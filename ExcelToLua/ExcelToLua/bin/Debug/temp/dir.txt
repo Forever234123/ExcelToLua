@@ -1,3 +1,3 @@
-D:/u3d_ilr/ExcelToBytes/
-D:/u3d_ilr/DHGame_IL/Assets/DH_Game/Conf/
-D:/u3d_ilr/DHGame_IL/Assets/StreamingAssets/Config/
+D:/u3d_ilr/Tools/ExcelToBytes/
+D:/u3d_ilr/Proj.Game/Assets/DH_Game/Conf_From_Xlsx/
+D:/u3d_ilr/Proj.Game/Assets/Res/Base/Bytes/

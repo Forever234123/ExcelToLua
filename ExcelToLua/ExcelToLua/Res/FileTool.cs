@@ -243,6 +243,7 @@ namespace ExcelToLua.Res
                     if (rowkey.StartsWith(MyConfig.linkTable))
                     {
                         string file = rowkey.Substring(MyConfig.linkTable.Length);
+                        if (dic.ContainsKey(file)) continue;
                         string filefullpath = MyConfig.GetFullExcelFile(file);
                         string errorStr;
                         DataSet dataSet = ReadExcel.ExcelToDataSet(filefullpath, out errorStr);

@@ -39,6 +39,11 @@ namespace ExcelToLua.Res
 
         public static void ReadDir()
         {
+            if (!File.Exists(Res.MyConfig.dirfile))
+            {
+                FileStream file = File.Create(Res.MyConfig.dirfile);
+                file.Close();
+            }
             string str = File.ReadAllText(Res.MyConfig.dirfile);
             if (!string.IsNullOrEmpty(str))
             {
