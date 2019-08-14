@@ -31,6 +31,9 @@ namespace ExcelToLua.Res
 
         public static string dirfile = "temp/dir.txt";
 
+        //无效关键字
+        public const string Invalid = "NO";
+
         //关联表的关键字
         public static string linkTable = "L:";
 

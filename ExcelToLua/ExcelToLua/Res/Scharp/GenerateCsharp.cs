@@ -74,6 +74,10 @@ namespace ExcelToLua.Res
             for (int j = 0; j < table.Columns.Count; j++)
             {
                 DataColumn mDc = table.Columns[j];
+                if (RowKey[mDc].ToString().Trim().ToUpper().Equals(MyConfig.Invalid))
+                {
+                    continue;
+                }
                 string property = RowName[mDc].ToString();
                 string type = RowType[mDc].ToString();
                 type = type.ToLower().Trim();
@@ -94,7 +98,7 @@ namespace ExcelToLua.Res
                     return;
                 }
 
-                if (RowKey[mDc].ToString().ToLower().Trim()==TMP.keystr)
+                if (RowKey[mDc].ToString().ToLower().Trim() == TMP.keystr)
                 {
                     scharpstr = scharpstr.Replace(TMP.keyTypeTmp, typestr);
                     scharpstr = scharpstr.Replace(TMP.keyPropertyTmp, property);

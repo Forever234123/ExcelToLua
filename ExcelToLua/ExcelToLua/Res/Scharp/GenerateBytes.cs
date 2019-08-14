@@ -78,12 +78,35 @@ namespace ExcelToLua.Res.Scharp
                 for (int j = 0; j < table.Columns.Count; j++)
                 {
                     DataColumn mDc = table.Columns[j];
+
+                    if (RowKey[mDc].ToString().Trim().Equals(MyConfig.Invalid))//设置为无效字段
+                    {
+                        continue;
+                    }
+
                     string property = RowName[mDc].ToString();
                     string typestr = RowType[mDc].ToString().ToLower().Trim();
                     if (string.IsNullOrEmpty(property) || string.IsNullOrEmpty(typestr))
                     {
                         continue;
                     }
+                    //--检查关联表是否有这个字段------------------------------------
+                    if (RowKey[mDc].ToString().StartsWith(MyConfig.linkTable))
+                    {
+                        string file = RowKey[mDc].ToString().Substring(MyConfig.linkTable.Length);
+                        if (dic.ContainsKey(file))
+                        {
+                            if (!dic[file].Contains(mRow[mDc].ToString()))
+                            {
+                                int rowIndex = i + 1;
+                                int columnIndex = j + 1;
+                                errorStr = param.filePath + "表," + rowIndex + "行" + MyConfig.ColumnToA_Z(columnIndex) + "列;" + "关联表" + file + "的Key值没有该值：" + mRow[mDc].ToString();
+                                param.errorH.Invoke(errorStr);
+                            }
+                        }
+                    }
+                    //------------------------------------------------------------
+
                     ByteBase.TYPE type = ByteBase.GetTypeByName(typestr);
 
                     string str = mRow[mDc].ToString();
