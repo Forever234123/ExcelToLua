@@ -96,7 +96,7 @@ namespace ExcelToLua.Res.Scharp
                         string file = RowKey[mDc].ToString().Substring(MyConfig.linkTable.Length);
                         if (dic.ContainsKey(file))
                         {
-                            if (!dic[file].Contains(mRow[mDc].ToString()))
+                            if (!mRow[mDc].ToString().Trim().Equals("0") && !dic[file].Contains(mRow[mDc].ToString()))
                             {
                                 int rowIndex = i + 1;
                                 int columnIndex = j + 1;

@@ -70,6 +70,11 @@ namespace ExcelToLua.Res
                 for(int j = 0;j < table.Columns.Count;j++)
                 {
                     DataColumn mDc = table.Columns[j];
+                    if (RowKey[mDc].ToString().Trim().ToUpper().Equals(MyConfig.Invalid))
+                    {
+                        continue;
+                    }
+
                     if (RowKey[mDc].ToString().ToLower() == "key" && string.IsNullOrEmpty(mDr[mDc].ToString()))
                     {
                         break;
